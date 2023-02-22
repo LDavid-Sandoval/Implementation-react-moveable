@@ -7,7 +7,6 @@ import useFetch from "../../hooks/useFetch";
 const ComponentMoveable = ({ id, removeItem, fitType }) => {
   const { data, loading } = useFetch();
   const [isClicked, setIsClicked] = useState(false);
-  const [isHover, setIsHover] = useState(false);
   const [helper] = useState(() => {
     return new MoveableHelper();
   });
@@ -18,15 +17,6 @@ const ComponentMoveable = ({ id, removeItem, fitType }) => {
       setIsClicked(true);
     }
   };
-
-  const handleHover = () => {
-    setIsHover(true);
-  };
-
-  const handleLeave = () => {
-    setIsHover(false);
-    setIsClicked(false);
-  };
   return (
     <div className='container-moveable' onClick={handleClick}>
       {!loading && (
@@ -36,9 +26,7 @@ const ComponentMoveable = ({ id, removeItem, fitType }) => {
             backgroundImage: `url(${data.url})`,
             backgroundSize: `${fitType}`,
           }}
-          ref={targetRef}
-          onMouseEnter={handleHover}
-          onMouseLeave={handleLeave}>
+          ref={targetRef}>
           <div>
             <button
               className='item-button margin-button'
@@ -60,17 +48,17 @@ const ComponentMoveable = ({ id, removeItem, fitType }) => {
       )}
       <Moveable
         target={targetRef}
-        draggable={isClicked & isHover}
-        scalable={isClicked & isHover}
-        keepRatio={isClicked & isHover}
-        rotatable={isClicked & isHover}
+        draggable={isClicked}
+        scalable={isClicked}
+        keepRatio={isClicked}
+        rotatable={isClicked}
         onDragStart={helper.onDragStart}
         onDrag={helper.onDrag}
         onScaleStart={helper.onScaleStart}
         onScale={helper.onScale}
         onRotateStart={helper.onRotateStart}
         onRotate={helper.onRotate}
-        hideDefaultLines={isClicked & isHover}
+        hideDefaultLines={isClicked}
       />
     </div>
   );
