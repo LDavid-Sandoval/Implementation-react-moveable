@@ -1,15 +1,11 @@
 import React, { useState, useRef, memo } from "react";
 import Moveable from "react-moveable";
 import ReactLoading from "react-loading";
-import MoveableHelper from "moveable-helper";
 import useFetch from "../../hooks/useFetch";
 
 const ComponentMoveable = ({ id, removeItem, fitType }) => {
   const { data, loading } = useFetch();
   const [isClicked, setIsClicked] = useState(false);
-  const [helper] = useState(() => {
-    return new MoveableHelper();
-  });
   const targetRef = useRef();
 
   const handleClick = () => {
@@ -19,7 +15,7 @@ const ComponentMoveable = ({ id, removeItem, fitType }) => {
   };
   return (
     <div className='container-moveable' onClick={handleClick}>
-      {!loading && (
+      {!loading && targetRef && (
         <div
           className='image-contain'
           style={{
@@ -48,16 +44,45 @@ const ComponentMoveable = ({ id, removeItem, fitType }) => {
       )}
       <Moveable
         target={targetRef}
+        container={null}
         draggable={isClicked}
+        resizable={isClicked}
+        throttleResize={0}
         scalable={isClicked}
         keepRatio={isClicked}
         rotatable={isClicked}
-        onDragStart={helper.onDragStart}
-        onDrag={helper.onDrag}
-        onScaleStart={helper.onScaleStart}
-        onScale={helper.onScale}
-        onRotateStart={helper.onRotateStart}
-        onRotate={helper.onRotate}
+        onDrag={({
+          target,
+          beforeDelta,
+          beforeDist,
+          left,
+          top,
+          right,
+          bottom,
+          delta,
+          dist,
+          transform,
+          clientX,
+          clientY,
+        }) => {
+          targetRef.current.style.transform = transform;
+        }}
+        onResize={({
+          target,
+          width,
+          height,
+          dist,
+          delta,
+          direction,
+          clientX,
+          clientY,
+        }) => {
+          delta[0] && (targetRef.current.style.width = `${width}px`);
+          delta[1] && (targetRef.current.style.height = `${height}px`);
+        }}
+        onRotate={({ target, delta, dist, transform, clientX, clientY }) => {
+          targetRef.current.style.transform = transform;
+        }}
         hideDefaultLines={isClicked}
       />
     </div>
