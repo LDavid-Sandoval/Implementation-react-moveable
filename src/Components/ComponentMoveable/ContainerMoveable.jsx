@@ -5,19 +5,19 @@ import MoveableHelper from "moveable-helper";
 import useFetch from "../../hooks/useFetch";
 
 
-const ComponentMoveable = ({id, removeItem}) => {
+const ComponentMoveable = ({ id, removeItem, fitType }) => {
   const { data, loading } = useFetch();
-  const [ isClicked, setIsClicked ] = useState(false)
+  const [isClicked, setIsClicked] = useState(false);
   const [helper] = useState(() => {
     return new MoveableHelper();
   });
   const targetRef = useRef();
 
   const handleClick = () => {
-    if(!isClicked){
-      setIsClicked(true)
+    if (!isClicked) {
+      setIsClicked(true);
     }
-  }
+  };
 
   return (
     <div className='container-moveable' onClick={handleClick}>
@@ -26,7 +26,7 @@ const ComponentMoveable = ({id, removeItem}) => {
           className='image-contain'
           style={{
             backgroundImage: `url(${data.url})`,
-            backgroundSize: `cover`,
+            backgroundSize: `${fitType}`,
           }}
           ref={targetRef}>
           <div>
