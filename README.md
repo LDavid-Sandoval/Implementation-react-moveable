@@ -1,30 +1,33 @@
-## Prueba técnica Kosmos
+# Implementation react-moveable in React.JS - Luis David Sandoval López
 
-Esta preuba es realizada por David Sandoval, con el usuario de github https://github.com/LDavid-Sandoval
-Instalación
+This is a practice exercise with the react-moveable library.
+
+## Instalación
 
 Se requiere clonar el repositorio del siguiente enlace:
 
-    https://github.com/LDavid-Sandoval/test-kosmos.git
+```bash
+    https://github.com/LDavid-Sandoval/Implementation-react-moveable.git
+```
 
 O por medio de SSH
 
-git@github.com:LDavid-Sandoval/test-kosmos.git
+```bash
+  git clone git@github.com:LDavid-Sandoval/Implementation-react-moveable.git
+```
 
-Abrir la carpeta de archivos dentro de Visual Studio Code, para poder instalar dependencias requeridas.
+Abrir la carpeta de archivos dentro de Visual Studio Code para poder instalar dependencias requeridas
 
-npm i
+```bash
+  npm i
+```
 
-Ejecución
+## Ejecución
 
 Para ejecutar el proyecto ejecuté lo siguiente
 
-npm start
+```bash
+  npm start
+```
 
 El proyecto funciona con una simulación de datos, por lo que no es necesaria una configuración extra.
-
-## Libreria
-
-El Proyecto se desarrolló con la librería "react-moveable"
-la documentación se encuentra en https://daybrush.com/moveable/release/latest/doc/index.html
-y en la libreria auxiliar del mismo creador https://daybrush.com/moveable-helper/release/latest/doc/

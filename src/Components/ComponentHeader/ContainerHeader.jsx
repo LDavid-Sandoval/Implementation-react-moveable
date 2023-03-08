@@ -5,8 +5,7 @@ const ComponentHeader = ({ addItem }) => {
     <div className='container-header'>
       <div className='elements-header'>
         <p>
-          Test técnico de Luis David Sandoval López para vacante de
-          Desarrollador React.JS en Kosmos
+          Implementation react-moveable in React.JS - Luis David Sandoval López
         </p>
         <button className='item-button' onClick={addItem}>
           Add Item
