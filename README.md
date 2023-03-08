@@ -9,21 +9,22 @@ Se requiere clonar el repositorio del siguiente enlace:
 
 O por medio de SSH
 
-  git@github.com:LDavid-Sandoval/test-kosmos.git
+git@github.com:LDavid-Sandoval/test-kosmos.git
 
 Abrir la carpeta de archivos dentro de Visual Studio Code, para poder instalar dependencias requeridas.
 
-  npm i 
+npm i
 
 Ejecución
 
 Para ejecutar el proyecto ejecuté lo siguiente
 
-  npm start
+npm start
 
 El proyecto funciona con una simulación de datos, por lo que no es necesaria una configuración extra.
 
-
 ## Libreria
-El Proyecto se desarrolló con la librería "react-moveable" 
+
+El Proyecto se desarrolló con la librería "react-moveable"
 la documentación se encuentra en https://daybrush.com/moveable/release/latest/doc/index.html
+y en la libreria auxiliar del mismo creador https://daybrush.com/moveable-helper/release/latest/doc/
