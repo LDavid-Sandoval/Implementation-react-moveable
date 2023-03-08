@@ -3,13 +3,12 @@ import uuid from "react-uuid";
 import "./App.css";
 import ComponentMoveable from "./Components/ComponentMoveable/ContainerMoveable";
 import ComponentHeader from "./Components/ComponentHeader/ContainerHeader";
-import { fitType, randomNumber } from './utils/const'
 
 function App() {
   const [item, setItem] = useState([{ id: uuid() }]);
 
   const addItem = () => {
-    setItem([...item, { id: uuid(), fitType: fitType[randomNumber(0, 12)] }]);
+    setItem([...item, { id: uuid(), fitType: "cover" }]);
   };
 
   const removeItem = (id) => {
@@ -19,7 +18,6 @@ function App() {
     }
     setItem([...item]);
   };
-
 
   return (
     <div className='App'>
